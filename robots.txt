@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alarmsong.com/sitemap.xml

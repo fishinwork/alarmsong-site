@@ -54,6 +54,23 @@ header { padding: 28px 0 8px; }
   text-decoration: none;
 }
 
+/* Шапка со знаком. Знак один на всё — brand/mark.svg, из него же пекутся
+   фавиконки и картинка для ссылок (brand/bake.py). Второй раз не рисуем. */
+.brandrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+}
+
+.mark {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  flex: none;
+}
+
 h1 {
   font-size: 30px;
   line-height: 1.2;

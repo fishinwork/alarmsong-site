@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- Картинка для ссылок, 1200x630. Её печёт brand/bake.py в og.png.
+     Открывать в браузере можно и руками — увидите ровно то, что уедет в PNG. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; overflow: hidden; }
+  body {
+    width: 1200px; height: 630px;
+    background: #1A100A;
+    font-family: Inter, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: #F6E7D6;
+  }
+  .sheet {
+    position: relative; width: 1200px; height: 630px;
+    background:
+      radial-gradient(760px 520px at 50% 22%, rgba(255, 158, 92, 0.20), rgba(255, 158, 92, 0) 70%),
+      linear-gradient(168deg, #24150C 0%, #1A100A 55%, #130C07 100%);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+  }
+  .mark { width: 148px; height: 148px; display: block; }
+  h1 {
+    margin: 30px 0 0;
+    font-size: 84px; font-weight: 700; letter-spacing: -0.02em; line-height: 1;
+  }
+  p {
+    margin: 20px 0 0;
+    font-size: 36px; font-weight: 400; color: #C0A48C; line-height: 1.3;
+  }
+  .site {
+    position: absolute; left: 0; right: 0; bottom: 46px;
+    font-size: 24px; font-weight: 600; letter-spacing: 0.08em;
+    color: #FF9E5C; text-transform: lowercase;
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <img class="mark" src="mark.svg" alt="">
+  <h1>AlarmSong</h1>
+  <p>An alarm that sings about your day</p>
+  <div class="site">alarmsong.com</div>
+</div>
+</body>
+</html>

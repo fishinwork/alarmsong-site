@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AlarmSong">
+  <!-- Знак AlarmSong: половина солнца над горизонтом, под горизонтом звуковая волна.
+       Источник правды — design/IKONKA.md в основном репозитории; здесь та же
+       геометрия, упрощённая до шести полос вместо двенадцати, чтобы знак читался
+       на вкладке в 16 пикселей. Все картинки сайта пекутся отсюда: brand/bake.py.
+       Рисовать знак второй раз руками нельзя — две копии разойдутся. -->
+  <defs>
+    <radialGradient id="as-bg" cx="50%" cy="46%" r="72%">
+      <stop offset="0" stop-color="#1E1813"/>
+      <stop offset="1" stop-color="#0C0907"/>
+    </radialGradient>
+    <linearGradient id="as-sun" x1="0" y1="12" x2="0" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFC79B"/>
+      <stop offset="0.45" stop-color="#FF9E5C"/>
+      <stop offset="1" stop-color="#E0702F"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="64" height="64" rx="13" fill="url(#as-bg)"/>
+
+  <!-- солнце: ровно половина диска, плоской стороной вниз -->
+  <path d="M12 32 A20 20 0 0 1 52 32 Z" fill="url(#as-sun)"/>
+
+  <!-- горизонт -->
+  <rect x="8" y="31.6" width="48" height="1.7" rx="0.85" fill="#FF9E5C" opacity="0.45"/>
+
+  <!-- волна: шесть полос шириной ровно в солнце -->
+  <g fill="#FF9E5C">
+    <rect x="12.00" y="40.50" width="4.7" height="8" rx="2.35"/>
+    <rect x="19.06" y="37.25" width="4.7" height="14.5" rx="2.35"/>
+    <rect x="26.12" y="39.50" width="4.7" height="10" rx="2.35"/>
+    <rect x="33.18" y="35.00" width="4.7" height="19" rx="2.35"/>
+    <rect x="40.24" y="38.25" width="4.7" height="12.5" rx="2.35"/>
+    <rect x="47.30" y="41.00" width="4.7" height="7" rx="2.35"/>
+  </g>
+</svg>

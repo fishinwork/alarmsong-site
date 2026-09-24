@@ -1,7 +1,47 @@
-# AlarmSong — public pages
+# AlarmSong — сайт
 
-Support, privacy, terms and data deletion pages for the AlarmSong alarm app.
-Published with GitHub Pages at https://alarmsong.com
+Публичные страницы alarmsong.com. Лежат на GitHub Pages, ветка `main`, корень
+репозитория. Домен — в `CNAME`, сертификат и принудительный HTTPS включены.
 
-Source of truth for these files is the app repository; they are copied here to
-be served. Edit them there, then sync.
+**Живой источник страниц — этот репозиторий.** В основном репозитории
+приложения их больше нет: две копии одних и тех же страниц разошлись бы за
+неделю.
+
+| Что | Где |
+|---|---|
+| Какие есть адреса и куда они вписаны | `ADRESA.md` |
+| Знак, из которого пекутся все картинки | `brand/mark.svg` |
+| Печка иконок и картинки для ссылок | `python brand/bake.py` |
+| Общий вид всех страниц | `style.css` |
+
+## Кто что делает
+
+| Что | Кто |
+|---|---|
+| Тексты политики, условий, поддержки, удаления данных | юридический чат |
+| Вёрстка, главная, домен, оформление, служебная обвязка | чат сайта |
+
+Меняете смысл юридического текста — сначала к юридическому чату: он сверяет
+слова с тем, что приложение делает на самом деле, и с требованиями магазинов.
+
+## Посмотреть локально
+
+```
+python -m http.server 8787 --directory .
+```
+
+Откроется по адресу `http://localhost:8787/index.html`. Короткие адреса вроде
+`/support` локально не работают — их делает сам GitHub Pages; проверяйте
+`support.html`.
+
+## Пересобрать картинки
+
+Нужны Chrome (или Edge) и Pillow. Запускать только когда меняется сам знак:
+
+```
+python brand/bake.py
+```
+
+Из `brand/mark.svg` получатся `favicon.ico`, `favicon.svg`,
+`apple-touch-icon.png`, `icon-192.png`, `icon-512.png` и `og.png`.
+Рисовать что-то из этого руками нельзя — копии знака разойдутся.
