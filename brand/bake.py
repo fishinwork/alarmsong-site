@@ -124,9 +124,16 @@ def main():
     made.append('favicon.ico')
 
     # 3. Картинка для ссылок — отдельная страница, знак плюс подпись.
+    #    Держим её легче двухсот килобайт: мессенджеры тяжёлую просто не
+    #    показывают, и ссылка приходит мёртвой. 256 цветов с размытием —
+    #    на глаз то же самое, весит вдвое меньше.
     og = os.path.join(ROOT, 'og.png')
     shoot(os.path.join(HERE, 'og.html'), 1200, 630, og, chrome)
-    Image.open(og).convert('RGB').save(og)
+    picture = Image.open(og).convert('RGB').quantize(
+        colors=256, method=Image.MEDIANCUT, dither=Image.FLOYDSTEINBERG)
+    picture.save(og, 'PNG', optimize=True)
+    if os.path.getsize(og) > 200 * 1024:
+        print('ВНИМАНИЕ: og.png тяжелее 200 КБ, ссылка может прийти без картинки')
     made.append('og.png')
 
     for junk in [wrapper] + [os.path.join(HERE, f'_ico_{s}.png') for s in ICO_SIZES]:
