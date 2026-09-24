@@ -131,6 +131,14 @@ a { color: var(--accent); }
   margin: 16px 0;
 }
 
+/* Заголовок внутри карточки: уровень второй (пропускать уровни нельзя),
+   а вид — как у третьего, иначе он спорит с заголовком страницы. */
+.card .cardhead {
+  font-size: 17px;
+  font-weight: 650;
+  margin: 22px 0 6px;
+}
+
 .steps { counter-reset: step; list-style: none; padding-left: 0; }
 
 .steps li {
