@@ -15,18 +15,41 @@
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<div class="wrap">
-<header><a class="brandrow" href="/"><img class="mark" src="/favicon.svg" width="30" height="30" alt=""><span class="brand">AlarmSong</span></a></header>
+
+<div class="bar">
+  <div class="bar-in">
+    <a class="brandrow" href="/"><img class="mark" src="/favicon.svg" width="30" height="30" alt=""><span class="brand">AlarmSong</span></a>
+    <nav aria-label="Site">
+      <a href="/how-it-works">How it works</a>
+      <a href="/features">Features</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/support">Support</a>
+    </nav>
+  </div>
+</div>
+
+<main class="wrap">
+<div class="hero">
 <h1>Nothing here</h1>
 <p class="lede">This page slept through its alarm. Try one of these instead.</p>
-<ul>
-  <li><a href="/">Home</a></li>
-  <li><a href="/support">Support</a></li>
-  <li><a href="/privacy">Privacy</a></li>
-  <li><a href="/terms">Terms of use</a></li>
-  <li><a href="/delete-account">Delete your data</a></li>
-</ul>
+<div class="cta">
+  <a class="btn btn-main" href="/">Home</a>
+  <a class="btn btn-flat" href="/how-it-works">How it works</a>
 </div>
+</div>
+
+<footer>
+<a href="/">Home</a>
+<a href="/how-it-works">How it works</a>
+<a href="/features">Features</a>
+<a href="/pricing">Pricing</a>
+<a href="/support">Support</a>
+<a href="/privacy">Privacy</a>
+<a href="/terms">Terms</a>
+<a href="/delete-account">Delete your data</a>
+<p class="updated">Write to <a href="mailto:hello@alarmsong.com">hello@alarmsong.com</a> if something should have been here.</p>
+</footer>
+</main>
 <!-- Counting page views: Cloudflare Web Analytics. No cookies, no local storage,
      nothing that says who you are — so the site needs no consent banner. -->
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
