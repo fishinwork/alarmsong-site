@@ -1,9 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AlarmSong">
-  <!-- Знак AlarmSong: половина солнца над горизонтом, под горизонтом звуковая волна.
-       Источник правды — design/IKONKA.md в основном репозитории; здесь та же
-       геометрия, упрощённая до шести полос вместо двенадцати, чтобы знак читался
-       на вкладке в 16 пикселей. Все картинки сайта пекутся отсюда: brand/bake.py.
-       Рисовать знак второй раз руками нельзя — две копии разойдутся. -->
+  <!-- The AlarmSong mark: half a sun over the horizon, a sound wave beneath it.
+       Six bars instead of twelve so the mark still reads at 16 pixels in a tab.
+       Every image on the site is baked from this file; see brand/bake.py. -->
   <defs>
     <radialGradient id="as-bg" cx="50%" cy="46%" r="72%">
       <stop offset="0" stop-color="#1E1813"/>
@@ -18,13 +16,13 @@
 
   <rect width="64" height="64" rx="13" fill="url(#as-bg)"/>
 
-  <!-- солнце: ровно половина диска, плоской стороной вниз -->
+  <!-- the sun: exactly half a disc, flat side down -->
   <path d="M12 32 A20 20 0 0 1 52 32 Z" fill="url(#as-sun)"/>
 
-  <!-- горизонт -->
+  <!-- the horizon -->
   <rect x="8" y="31.6" width="48" height="1.7" rx="0.85" fill="#FF9E5C" opacity="0.45"/>
 
-  <!-- волна: шесть полос шириной ровно в солнце -->
+  <!-- the wave: six bars, as wide as the sun above them -->
   <g fill="#FF9E5C">
     <rect x="12.00" y="40.50" width="4.7" height="8" rx="2.35"/>
     <rect x="19.06" y="37.25" width="4.7" height="14.5" rx="2.35"/>

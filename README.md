@@ -1,47 +1,42 @@
-# AlarmSong — сайт
+# AlarmSong — the public site
 
-Публичные страницы alarmsong.com. Лежат на GitHub Pages, ветка `main`, корень
-репозитория. Домен — в `CNAME`, сертификат и принудительный HTTPS включены.
+The pages behind [alarmsong.com](https://alarmsong.com): home, support,
+privacy, terms and account deletion. Served by GitHub Pages from `main`,
+straight out of the repository root. The domain lives in `CNAME`; HTTPS is
+issued and enforced.
 
-**Живой источник страниц — этот репозиторий.** В основном репозитории
-приложения их больше нет: две копии одних и тех же страниц разошлись бы за
-неделю.
+Plain HTML and one stylesheet. No build step, no framework, nothing to install
+before editing a page.
 
-| Что | Где |
+| What | Where |
 |---|---|
-| Какие есть адреса и куда они вписаны | `ADRESA.md` |
-| Знак, из которого пекутся все картинки | `brand/mark.svg` |
-| Печка иконок и картинки для ссылок | `python brand/bake.py` |
-| Общий вид всех страниц | `style.css` |
+| Look of every page | `style.css` |
+| The mark everything is drawn from | `brand/mark.svg` |
+| Baker for favicons and the link preview | `python brand/bake.py` |
 
-## Кто что делает
-
-| Что | Кто |
-|---|---|
-| Тексты политики, условий, поддержки, удаления данных | юридический чат |
-| Вёрстка, главная, домен, оформление, служебная обвязка | чат сайта |
-
-Меняете смысл юридического текста — сначала к юридическому чату: он сверяет
-слова с тем, что приложение делает на самом деле, и с требованиями магазинов.
-
-## Посмотреть локально
+## Look at it locally
 
 ```
 python -m http.server 8787 --directory .
 ```
 
-Откроется по адресу `http://localhost:8787/index.html`. Короткие адреса вроде
-`/support` локально не работают — их делает сам GitHub Pages; проверяйте
-`support.html`.
+Open `http://localhost:8787/index.html`. The short addresses (`/support` and
+friends) are GitHub Pages' doing and do not work locally — open the `.html`
+file instead.
 
-## Пересобрать картинки
+## Redraw the images
 
-Нужны Chrome (или Edge) и Pillow. Запускать только когда меняется сам знак:
+Only when the mark itself changes. Needs Chrome (or Edge) and Pillow:
 
 ```
 python brand/bake.py
 ```
 
-Из `brand/mark.svg` получатся `favicon.ico`, `favicon.svg`,
-`apple-touch-icon.png`, `icon-192.png`, `icon-512.png` и `og.png`.
-Рисовать что-то из этого руками нельзя — копии знака разойдутся.
+`brand/mark.svg` becomes `favicon.ico`, `favicon.svg`, `apple-touch-icon.png`,
+`icon-192.png`, `icon-512.png` and `og.png`. None of those are drawn by hand —
+two copies of a mark drift apart within a week.
+
+## Before calling a change done
+
+Check at 320, 375 and desktop width, in both light and dark, and make sure
+nothing is clipped and nothing scrolls sideways.

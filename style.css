@@ -1,10 +1,9 @@
-/* Общий стиль скучных страниц AlarmSong: поддержка, удаление, политика,
-   условия. Палитра — «Первый луч» из ios/Theme.swift, буква в букву, обе
-   темы. Отдельного веб-кита пока нет (t087), поэтому источник цвета один:
-   приложение.
+/* Shared look for the plain pages: home, support, privacy, terms, deletion.
+   Colours are the app's "First light" palette, letter for letter, both themes.
+   There is no separate web kit yet, so the app stays the single source.
 
-   Правило проекта: ничего не режется и не скроллится внутри блока.
-   Проверять на 320, 375 и на компьютере. */
+   House rule: nothing is clipped and nothing scrolls sideways inside a block.
+   Check at 320, 375 and on a desktop before calling anything done. */
 
 :root {
   --bg: #E7D8C6;
@@ -38,7 +37,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
-  /* Длинные адреса и слова переносятся, а не вылезают за край. */
+  /* Long words and addresses wrap instead of pushing past the edge. */
   overflow-wrap: anywhere;
 }
 
@@ -54,8 +53,8 @@ header { padding: 28px 0 8px; }
   text-decoration: none;
 }
 
-/* Шапка со знаком. Знак один на всё — brand/mark.svg, из него же пекутся
-   фавиконки и картинка для ссылок (brand/bake.py). Второй раз не рисуем. */
+/* Header with the mark. One mark for everything — brand/mark.svg — and the
+   favicons and link preview are baked from it (brand/bake.py). Never redrawn. */
 .brandrow {
   display: inline-flex;
   align-items: center;
@@ -103,7 +102,7 @@ a { color: var(--accent); }
   margin-bottom: 4px;
 }
 
-/* Контакт: обязан быть виден на телефоне без прокрутки. */
+/* The contact box has to be visible on a phone without scrolling. */
 .contact {
   background: var(--card);
   border: 1px solid var(--stroke);
@@ -131,8 +130,8 @@ a { color: var(--accent); }
   margin: 16px 0;
 }
 
-/* Заголовок внутри карточки: уровень второй (пропускать уровни нельзя),
-   а вид — как у третьего, иначе он спорит с заголовком страницы. */
+/* Heading inside a card: second level, because levels must not be skipped,
+   but sized like a third so it does not argue with the page title. */
 .card .cardhead {
   font-size: 17px;
   font-weight: 650;
