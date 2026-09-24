@@ -61,31 +61,86 @@
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Is it out yet?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Not yet. We are still building it and testing it on our own mornings. It is coming to the App Store first, and Android follows." }
-        },
-        {
-          "@type": "Question",
-          "name": "Does it need my calendar?",
-          "acceptedAnswer": { "@type": "Answer", "text": "It is better with one, but it is not required. Without the calendar the song sings about the morning instead of your day. We only read the titles and times for the day ahead, and we never store your calendar." }
-        },
-        {
-          "@type": "Question",
-          "name": "What happens if the song is not ready?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The alarm still rings, with a fallback sound rather than silence. A song takes a minute or two to write and needs the internet at the moment you set the alarm." }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I choose the music?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. There are a hundred styles to search through, from indie pop to math rock, and you can describe what you want in your own words instead." }
-        },
-        {
-          "@type": "Question",
-          "name": "What will it cost?",
-          "acceptedAnswer": { "@type": "Answer", "text": "4.49 US dollars a month, 29.99 a year, or 199 once and it is yours for good. Three days free before any of that. There is nothing to buy yet." }
-        }
+              {
+                      "@type": "Question",
+                      "name": "Is it out yet?",
+                      "acceptedAnswer": {
+                              "@type": "Answer",
+                              "text": "Not yet. We are still building it and testing it on our own mornings. It is coming to the App Store first, and Android follows."
+                      }
+              },
+              {
+                      "@type": "Question",
+                      "name": "Will it ring if the phone is locked and the app is closed?",
+                      "acceptedAnswer": {
+                              "@type": "Answer",
+                              "text": "Yes. It uses the phone's own system alarm rather than a notification, so it rings through a locked screen with the app closed, and it plays the whole song, not the first thirty seconds."
+                      }
+              },
+              {
+                      "@type": "Question",
+                      "name": "Do I need the internet in the morning?",
+                      "acceptedAnswer": {
+                              "@type": "Answer",
+                              "text": "No. The song is written the evening before and kept on the phone. The connection is needed when you set the alarm, not when it rings."
+                      }
+              },
+              {
+                      "@type": "Question",
+                      "name": "Do you read my calendar, and where does it go?",
+                      "acceptedAnswer": {
+                              "@type": "Answer",
+                              "text": "We read the titles and times of the day ahead so the song can be about them, and we do not store your calendar. Without a calendar it still works — the song is then about the morning rather than your day."
+                      }
+              },
+              {
+                      "@type": "Question",
+                      "name": "What happens if the song is not ready?",
+                      "acceptedAnswer": {
+                              "@type": "Answer",
+                              "text": "The alarm still rings, with a fallback sound rather than silence. A song takes a minute or two to write, and an alarm that stays quiet because a server had a bad night is not an alarm."
+                      }
+              },
+              {
+                      "@type": "Question",
+                      "name": "Can I choose the music and the language?",
+                      "acceptedAnswer": {
+                              "@type": "Answer",
+                              "text": "Yes. A hundred styles with a search box, from indie pop to math rock, or describe the sound in your own words. You can also pick the language the song is sung in."
+                      }
+              },
+              {
+                      "@type": "Question",
+                      "name": "How many songs a day?",
+                      "acceptedAnswer": {
+                              "@type": "Answer",
+                              "text": "One, for your morning. That is the same on every plan, including the one-time one — each song costs us money to make."
+                      }
+              },
+              {
+                      "@type": "Question",
+                      "name": "What will it cost, and how do I cancel?",
+                      "acceptedAnswer": {
+                              "@type": "Answer",
+                              "text": "$4.49 a month, $29.99 a year, or $199 once, with three days free first. Subscriptions renew by themselves until you cancel, and you cancel in your App Store or Google Play account settings at least 24 hours before the period ends — not in our app, because the store holds the subscription."
+                      }
+              },
+              {
+                      "@type": "Question",
+                      "name": "Does it work on Android?",
+                      "acceptedAnswer": {
+                              "@type": "Answer",
+                              "text": "It is being built. On iPhone the app installs from iOS 18, and the singing alarm itself needs iOS 26, because that is where the system alarm lives."
+                      }
+              },
+              {
+                      "@type": "Question",
+                      "name": "How do I delete my account and my data?",
+                      "acceptedAnswer": {
+                              "@type": "Answer",
+                              "text": "In the app: Settings, then Account, then Delete account. If the app is already gone, write to hello@alarmsong.com from the address you signed in with. Deleting is final — there is no archive to restore from."
+                      }
+              }
       ]
     }
   ]
@@ -242,26 +297,34 @@
   <h2>Questions people ask</h2>
   <dl class="faq">
     <dt>Is it out yet?</dt>
-    <dd>Not yet. We are still building it and testing it on our own mornings.
-    It is coming to the App Store first, and Android follows.</dd>
+    <dd>Not yet. We are still building it and testing it on our own mornings. It is coming to the App Store first, and Android follows.</dd>
 
-    <dt>Does it need my calendar?</dt>
-    <dd>It is better with one, but it is not required. Without the calendar the
-    song sings about the morning instead of your day. We only read the titles
-    and times for the day ahead, and we never store your calendar.</dd>
+    <dt>Will it ring if the phone is locked and the app is closed?</dt>
+    <dd>Yes. It uses the phone's own system alarm rather than a notification, so it rings through a locked screen with the app closed, and it plays the whole song, not the first thirty seconds.</dd>
+
+    <dt>Do I need the internet in the morning?</dt>
+    <dd>No. The song is written the evening before and kept on the phone. The connection is needed when you set the alarm, not when it rings.</dd>
+
+    <dt>Do you read my calendar, and where does it go?</dt>
+    <dd>We read the titles and times of the day ahead so the song can be about them, and we do not store your calendar. Without a calendar it still works — the song is then about the morning rather than your day.</dd>
 
     <dt>What happens if the song is not ready?</dt>
-    <dd>The alarm still rings, with a fallback sound rather than silence. A song
-    takes a minute or two to write and needs the internet at the moment you set
-    the alarm.</dd>
+    <dd>The alarm still rings, with a fallback sound rather than silence. A song takes a minute or two to write, and an alarm that stays quiet because a server had a bad night is not an alarm.</dd>
 
-    <dt>Can I choose the music?</dt>
-    <dd>Yes. There are a hundred styles to search through, from indie pop to
-    math rock, and you can describe what you want in your own words instead.</dd>
+    <dt>Can I choose the music and the language?</dt>
+    <dd>Yes. A hundred styles with a search box, from indie pop to math rock, or describe the sound in your own words. You can also pick the language the song is sung in.</dd>
 
-    <dt>What will it cost?</dt>
-    <dd>$4.49 a month, $29.99 a year, or $199 once and it is yours for good.
-    Three days free before any of that. There is nothing to buy yet.</dd>
+    <dt>How many songs a day?</dt>
+    <dd>One, for your morning. That is the same on every plan, including the one-time one — each song costs us money to make.</dd>
+
+    <dt>What will it cost, and how do I cancel?</dt>
+    <dd>$4.49 a month, $29.99 a year, or $199 once, with three days free first. Subscriptions renew by themselves until you cancel, and you cancel in your App Store or Google Play account settings at least 24 hours before the period ends — not in our app, because the store holds the subscription.</dd>
+
+    <dt>Does it work on Android?</dt>
+    <dd>It is being built. On iPhone the app installs from iOS 18, and the singing alarm itself needs iOS 26, because that is where the system alarm lives.</dd>
+
+    <dt>How do I delete my account and my data?</dt>
+    <dd>In the app: Settings, then Account, then Delete account. If the app is already gone, write to hello@alarmsong.com from the address you signed in with. Deleting is final — there is no archive to restore from.</dd>
   </dl>
   <p class="middle" style="margin-top:26px"><a class="btn btn-flat" href="/support">Ask us something else</a></p>
 </section>
