@@ -138,6 +138,22 @@ for page in ('index.html', 'pricing.html'):
             if abs(float(said) - real_saved) > 0.01:
                 bad.append('%s: обещана экономия $%s, а по ценам $%.2f' % (page, said, real_saved))
 
+# ── цены на страницах совпадают с условиями ─────────────────────────────
+# Источник цен — terms.html: их пишет юридический чат, и это то, что человек
+# принимает, нажимая кнопку. Цены уже дважды расходились, и оба раза ловил
+# человек. Теперь считает проверка.
+if os.path.exists('terms.html'):
+    in_terms = set(re.findall(r'\$([0-9]+(?:\.[0-9]{2})?)', read('terms.html')))
+    for page in ('index.html', 'pricing.html'):
+        if not os.path.exists(page):
+            continue
+        shown = set(re.findall(r'<span class="price">\$([0-9]+(?:\.[0-9]{2})?)</span>',
+                               read(page)))
+        for price in sorted(shown - in_terms):
+            bad.append('%s: цена $%s не встречается в terms.html' % (page, price))
+        for price in sorted(in_terms - shown):
+            bad.append('%s: цена $%s есть в условиях, но не показана' % (page, price))
+
 # ── итог ────────────────────────────────────────────────────────────────
 if bad:
     print('Не сошлось:')
