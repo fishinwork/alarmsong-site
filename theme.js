@@ -1,11 +1,18 @@
-/* Which theme the page wears. Light by default — that is the site's own look.
-   The choice is this browser's alone: it never leaves the machine and nothing
-   is stored about who made it. Loaded in <head> so the page never flashes. */
+/* Which theme the page wears. There are two — light and dark — and the first
+   one is whichever the machine already uses: someone whose whole system is
+   dark should not be hit with a white page. After that the switch decides,
+   and the choice is this browser's alone: it never leaves the machine and
+   nothing is stored about who made it. Loaded in <head> so the page never
+   flashes. */
 (function () {
   var root = document.documentElement;
   var saved = null;
   try { saved = localStorage.getItem('theme'); } catch (e) {}
-  root.setAttribute('data-theme', saved || 'light');
+  var system = 'light';
+  try {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) system = 'dark';
+  } catch (e) {}
+  root.setAttribute('data-theme', saved === 'light' || saved === 'dark' ? saved : system);
 
   function paint() {
     var now = root.getAttribute('data-theme');

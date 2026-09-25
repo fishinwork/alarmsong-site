@@ -70,8 +70,9 @@
     --dunes: url(/img/dunes-night.webp);
 }
 
+/* Без JavaScript атрибут не проставится вовсе — тогда тему выбирает система. */
 @media (prefers-color-scheme: dark) {
-  :root[data-theme="auto"] {
+  :root:not([data-theme="light"]):not([data-theme="dark"]) {
     --bg: #1A100A;
     --card: #2D1E14;
     --card-2: #3A2718;
@@ -224,10 +225,20 @@ body {
   font-size: 15px;
 }
 
-.bar nav a { color: var(--dim); text-decoration: none; white-space: nowrap; }
+/* Цвет ссылок здесь не «приглушённый», а обычный текстовый: меню лежит
+   поверх запечённого неба, и на светлом пятне бархана приглушённый цвет
+   пропадал совсем — «Pricing» и «Support» было не прочитать (Кирилл, 25.09,
+   снимок с телефона). Тень держит буквы на любом пятне, какое под ними
+   окажется. */
+.bar nav a {
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+  text-shadow: 0 1px 3px var(--bg);
+}
 
 .bar nav a:hover,
-.bar nav a[aria-current="page"] { color: var(--text); }
+.bar nav a[aria-current="page"] { color: var(--accent); }
 
 .bar nav a.btn { color: var(--on-accent); }
 
@@ -725,8 +736,8 @@ footer .brandrow { margin: 0 0 14px; }
   font: inherit;
   font-size: 14px;
   font-weight: 700;
-  width: 32px;
-  height: 28px;
+  width: 28px;
+  height: 24px;
   padding: 0;
   border-radius: 999px;
   cursor: pointer;
