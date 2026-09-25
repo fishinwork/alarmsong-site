@@ -73,6 +73,13 @@ provider gives us, and which provider it was</strong> (Apple, Google, or an emai
 An account exists so your songs survive a new phone. You can use AlarmSong without one.</p>
 <p>Our server keeps ordinary request logs, which include the network address your phone
 connected from. They exist to keep the service running and are deleted within 30 days.</p>
+<p>That same network address is also used, at the moment you ask for a song, to work out
+roughly which city you are in — accurate to about ten kilometres, never to a street. This
+happens on our own server, against a local database, and the city is not stored anywhere.
+It exists for one reason: so the song can mention the weather outside your window. The
+weather service receives only rounded coordinates, never your address, your name or anything
+else about you. The app never asks for your location, and there is no permission to grant
+or refuse.</p>
 
 <h2>What we do not collect</h2>
 <p>We do not read your contacts, messages, photos, browsing, or location. We do not track
@@ -98,6 +105,7 @@ is passed to these companies:</p>
       the European Union or the United States, and this page will say so when we do.</li>
   <li><strong>The service that composes and sings the music</strong>, which receives the finished
       lyrics. We use more than one, and which one runs depends on the style and the load.</li>
+  <li><strong>The weather service</strong>, which receives coordinates rounded to about ten kilometres and nothing else, and returns the forecast that the song sings about.</li>
   <li><strong>Our server host</strong>, Vultr, in the United States, where the song file sits until it is deleted.</li>
   <li><strong>The service that emails your sign-in code</strong>, Resend, if you sign in by email.</li>
   <li><strong>Apple and Google</strong>, if you sign in with them or buy something. They tell us that a person signed in; they do not get your calendar.</li>
