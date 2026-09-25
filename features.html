@@ -24,6 +24,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="AlarmSong — an alarm that sings about your day">
 <meta name="twitter:card" content="summary_large_image">
+<script src="/theme.js"></script>
 <link rel="stylesheet" href="/style.css">
 <script type="application/ld+json">
 {
@@ -38,16 +39,18 @@
 </head>
 <body>
 
+<div class="sky" aria-hidden="true"></div>
+
 <div class="bar">
   <div class="bar-in">
     <a class="brandrow" href="/"><img class="mark" src="/favicon.svg" width="30" height="30" alt=""><span class="brand">AlarmSong</span></a>
     <nav aria-label="Site">
-      <a href="/app">Get the app</a>
       <a href="/how-it-works">How it works</a>
       <a href="/features" aria-current="page">Features</a>
       <a href="/pricing">Pricing</a>
       <a href="/support">Support</a>
       <a href="https://www.trustpilot.com/review/alarmsong.com" rel="noopener">Reviews</a>
+      <a class="btn btn-main" href="/app">Get the app</a>
     </nav>
   </div>
 </div>
@@ -188,6 +191,11 @@
 <a href="/terms">Terms</a>
 <a href="/delete-account">Delete your data</a>
 <a href="https://www.trustpilot.com/review/alarmsong.com" rel="noopener">Reviews</a>
+</p>
+<p class="themes" role="group" aria-label="Theme">
+<button type="button" data-theme="light">Light</button>
+<button type="button" data-theme="dark">Dark</button>
+<button type="button" data-theme="auto">Auto</button>
 </p>
 <p class="updated">AlarmSong, 2026. Write to <a href="mailto:hello@alarmsong.com">hello@alarmsong.com</a>.</p>
 </footer>

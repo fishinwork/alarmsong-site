@@ -25,6 +25,7 @@
 <meta property="og:image:alt" content="AlarmSong — an alarm that sings about your day">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="/font/inter-800.woff2" as="font" type="font/woff2" crossorigin>
+<script src="/theme.js"></script>
 <link rel="stylesheet" href="/style.css">
 <script type="application/ld+json">
 {
@@ -149,11 +150,12 @@
 </head>
 <body>
 
+<div class="sky" aria-hidden="true"></div>
+
 <div class="bar">
   <div class="bar-in">
     <a class="brandrow" href="/"><img class="mark" src="/favicon.svg" width="30" height="30" alt=""><span class="brand">AlarmSong</span></a>
     <nav aria-label="Site">
-      <a href="/app">Get the app</a>
       <a href="/how-it-works">How it works</a>
       <a href="/features">Features</a>
       <a href="/pricing">Pricing</a>
@@ -166,24 +168,32 @@
 <main class="wrap wide">
 
 <div class="hero">
-  <img class="mark-big" src="/favicon.svg" width="84" height="84" alt="">
-  <p class="eyebrow">The beta is open on TestFlight</p>
-  <h1>An alarm that sings about your day</h1>
-  <p class="lede">Every morning a new song, written overnight about the day ahead —
-  what is on your calendar, what you left unfinished, in the music you like.
-  Never the same song twice.</p>
-  <svg class="wave" viewBox="0 0 132 22" fill="currentColor" aria-hidden="true">
-    <rect x="0" y="8" width="4" height="6" rx="2"/><rect x="11" y="4" width="4" height="14" rx="2"/>
-    <rect x="22" y="6" width="4" height="10" rx="2"/><rect x="33" y="1" width="4" height="20" rx="2"/>
-    <rect x="44" y="7" width="4" height="8" rx="2"/><rect x="55" y="3" width="4" height="16" rx="2"/>
-    <rect x="66" y="9" width="4" height="4" rx="2"/><rect x="77" y="2" width="4" height="18" rx="2"/>
-    <rect x="88" y="6" width="4" height="10" rx="2"/><rect x="99" y="4" width="4" height="14" rx="2"/>
-    <rect x="110" y="8" width="4" height="6" rx="2"/><rect x="121" y="5" width="4" height="12" rx="2"/>
-  </svg>
-  <div class="cta">
-    <a class="btn btn-main" href="/app">Get the app</a>
-    <a class="btn btn-flat" href="/how-it-works">See how it works</a>
+  <div class="hero-two">
+    <div>
+      <p class="eyebrow">The beta is open on TestFlight</p>
+      <h1>An alarm<br>that sings about<br><span class="hl">your day</span></h1>
+      <p class="lede">Every morning a new song, written overnight about the day
+      ahead — what is on your calendar, what you left unfinished, in the music
+      you like.</p>
+      <div class="cta">
+        <a class="btn btn-main" href="/app">Get the app</a>
+        <a class="btn btn-flat" href="#listen">Hear one</a>
+      </div>
+    </div>
+    <div class="phone hero-shot">
+      <img src="/img/alarm.webp" width="600" height="864" decoding="async" alt="The AlarmSong home screen counting down to the next alarm, with a 07:00 alarm card and the title of the song waiting for that morning">
+    </div>
   </div>
+
+  <p class="line">Never the same song twice.</p>
+  <svg class="wave" viewBox="0 0 132 22" fill="currentColor" aria-hidden="true">
+  <rect x="0" y="8" width="4" height="6" rx="2"/><rect x="11" y="4" width="4" height="14" rx="2"/>
+  <rect x="22" y="6" width="4" height="10" rx="2"/><rect x="33" y="1" width="4" height="20" rx="2"/>
+  <rect x="44" y="7" width="4" height="8" rx="2"/><rect x="55" y="3" width="4" height="16" rx="2"/>
+  <rect x="66" y="9" width="4" height="4" rx="2"/><rect x="77" y="2" width="4" height="18" rx="2"/>
+  <rect x="88" y="6" width="4" height="10" rx="2"/><rect x="99" y="4" width="4" height="14" rx="2"/>
+  <rect x="110" y="8" width="4" height="6" rx="2"/><rect x="121" y="5" width="4" height="12" rx="2"/>
+</svg>
 </div>
 
 <section class="section">
@@ -240,7 +250,7 @@
   </ul>
 </section>
 
-<section class="section middle">
+<section class="section middle" id="listen">
   <h2>It sings about your actual day</h2>
   <p class="lede">The dentist you are dreading ends up in the chorus. On the
   left is what was on the day; on the right is the title the song came back
@@ -337,37 +347,48 @@
 
 <section class="section">
   <h2>Questions people ask</h2>
-  <dl class="faq">
-    <dt>Is it out yet?</dt>
-    <dd>Not in the stores yet, but the beta is open: you can put it on your iPhone today through TestFlight, with room for a hundred testers. The App Store comes first after that, and Android follows.</dd>
-
-    <dt>Will it ring if the phone is locked and the app is closed?</dt>
-    <dd>Yes. It uses the phone's own system alarm rather than a notification, so it rings through a locked screen with the app closed, and it plays the whole song, not the first thirty seconds.</dd>
-
-    <dt>Do I need the internet in the morning?</dt>
-    <dd>No. The song is written the evening before and kept on the phone. The connection is needed when you set the alarm, not when it rings.</dd>
-
-    <dt>Do you read my calendar, and where does it go?</dt>
-    <dd>We read the titles and times of the day ahead so the song can be about them, and we do not store your calendar. Without a calendar it still works — the song is then about the morning rather than your day.</dd>
-
-    <dt>What happens if the song is not ready?</dt>
-    <dd>The alarm still rings, with a fallback sound rather than silence. A song takes a minute or two to write, and an alarm that stays quiet because a server had a bad night is not an alarm.</dd>
-
-    <dt>Can I choose the music and the language?</dt>
-    <dd>Yes. A hundred styles with a search box, from indie pop to math rock, or describe the sound in your own words. You can also pick the language the song is sung in.</dd>
-
-    <dt>How many songs a day?</dt>
-    <dd>One, for your morning. That is the same on every plan, including the one-time one — each song costs us money to make.</dd>
-
-    <dt>What will it cost, and how do I cancel?</dt>
-    <dd>$4.49 a month, $29.99 a year, or $199 once. The two subscriptions start with three free days, once per account; the one-time plan has none, because there is nothing to renew. Subscriptions renew by themselves until you cancel, and you cancel in your App Store or Google Play account settings at least 24 hours before the period ends — not in our app, because the store holds the subscription.</dd>
-
-    <dt>Does it work on Android?</dt>
-    <dd>It is being built. On iPhone, AlarmSong needs iOS 26 — that is where an iPhone lets an app ring its own alarm rather than a notification.</dd>
-
-    <dt>How do I delete my account and my data?</dt>
-    <dd>In the app: Settings, then Account, then Delete account. If the app is already gone, write to hello@alarmsong.com from the address you signed in with. Deleting is final — there is no archive to restore from.</dd>
-  </dl>
+  <div class="faq">
+    <details>
+      <summary>Is it out yet?</summary>
+      <p class="answer">Not in the stores yet, but the beta is open: you can put it on your iPhone today through TestFlight, with room for a hundred testers. The App Store comes first after that, and Android follows.</p>
+    </details>
+    <details>
+      <summary>Will it ring if the phone is locked and the app is closed?</summary>
+      <p class="answer">Yes. It uses the phone's own system alarm rather than a notification, so it rings through a locked screen with the app closed, and it plays the whole song, not the first thirty seconds.</p>
+    </details>
+    <details>
+      <summary>Do I need the internet in the morning?</summary>
+      <p class="answer">No. The song is written the evening before and kept on the phone. The connection is needed when you set the alarm, not when it rings.</p>
+    </details>
+    <details>
+      <summary>Do you read my calendar, and where does it go?</summary>
+      <p class="answer">We read the titles and times of the day ahead so the song can be about them, and we do not store your calendar. Without a calendar it still works — the song is then about the morning rather than your day.</p>
+    </details>
+    <details>
+      <summary>What happens if the song is not ready?</summary>
+      <p class="answer">The alarm still rings, with a fallback sound rather than silence. A song takes a minute or two to write, and an alarm that stays quiet because a server had a bad night is not an alarm.</p>
+    </details>
+    <details>
+      <summary>Can I choose the music and the language?</summary>
+      <p class="answer">Yes. A hundred styles with a search box, from indie pop to math rock, or describe the sound in your own words. You can also pick the language the song is sung in.</p>
+    </details>
+    <details>
+      <summary>How many songs a day?</summary>
+      <p class="answer">One, for your morning. That is the same on every plan, including the one-time one — each song costs us money to make.</p>
+    </details>
+    <details>
+      <summary>What will it cost, and how do I cancel?</summary>
+      <p class="answer">$4.49 a month, $29.99 a year, or $199 once. The two subscriptions start with three free days, once per account; the one-time plan has none, because there is nothing to renew. Subscriptions renew by themselves until you cancel, and you cancel in your App Store or Google Play account settings at least 24 hours before the period ends — not in our app, because the store holds the subscription.</p>
+    </details>
+    <details>
+      <summary>Does it work on Android?</summary>
+      <p class="answer">It is being built. On iPhone, AlarmSong needs iOS 26 — that is where an iPhone lets an app ring its own alarm rather than a notification.</p>
+    </details>
+    <details>
+      <summary>How do I delete my account and my data?</summary>
+      <p class="answer">In the app: Settings, then Account, then Delete account. If the app is already gone, write to hello@alarmsong.com from the address you signed in with. Deleting is final — there is no archive to restore from.</p>
+    </details>
+  </div>
   <p class="middle" style="margin-top:26px"><a class="btn btn-flat" href="/support">Ask us something else</a></p>
 </section>
 
@@ -382,6 +403,19 @@
   </div>
 </section>
 
+<section class="finish">
+  <div>
+    <h2>Wake up to <span class="hl">a better day</span></h2>
+    <p class="lede">A new song every morning. Yours, about your day, and nobody
+    else will ever hear it.</p>
+    <div class="cta">
+      <a class="btn btn-main" href="/app">Get the app</a>
+      <a class="btn btn-flat" href="/how-it-works">How a morning goes</a>
+    </div>
+  </div>
+  <img class="mascot" src="/img/mascot.webp" width="420" height="420" loading="lazy" decoding="async" alt="">
+</section>
+
 <footer>
 <span class="brandrow"><img class="mark" src="/favicon.svg" width="30" height="30" alt=""><span class="brand">AlarmSong</span></span>
 <p>
@@ -394,6 +428,11 @@
 <a href="/terms">Terms</a>
 <a href="/delete-account">Delete your data</a>
 <a href="https://www.trustpilot.com/review/alarmsong.com" rel="noopener">Reviews</a>
+</p>
+<p class="themes" role="group" aria-label="Theme">
+<button type="button" data-theme="light">Light</button>
+<button type="button" data-theme="dark">Dark</button>
+<button type="button" data-theme="auto">Auto</button>
 </p>
 <p class="updated">AlarmSong, 2026. Write to <a href="mailto:hello@alarmsong.com">hello@alarmsong.com</a>.</p>
 </footer>
