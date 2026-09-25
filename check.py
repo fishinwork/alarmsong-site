@@ -48,6 +48,7 @@ one_per_page('дальний слой', lambda h: h.count('class="far"'))
 one_per_page('ближний слой', lambda h: h.count('class="near"'))
 one_per_page('счётчик', lambda h: h.count(BEACON))
 one_per_page('общий стиль', lambda h: h.count('href="/style.css"'))
+one_per_page('атрибуция DB-IP', lambda h: h.count('db-ip.com'))
 
 # ── адреса страниц ───────────────────────────────────────────────────────
 for page in PAGES:
