@@ -701,7 +701,10 @@ footer .brandrow { margin: 0 0 14px; }
   .line { margin-top: 52px; }
 }
 
-/* The theme switch: three states, remembered per browser. */
+/* The theme switch: three states, remembered per browser. It sits in the top
+   bar, at the right end — the first place anyone looks for it. Words became
+   signs there: three buttons spelled out pushed the menu onto a second line
+   on a phone. */
 .themes {
   display: inline-flex;
   background: var(--card);
@@ -709,6 +712,10 @@ footer .brandrow { margin: 0 0 14px; }
   border-radius: 999px;
   padding: 3px;
   gap: 2px;
+  /* Справа и на широком экране, и на телефоне: когда меню переносится на
+     вторую строку, переключатель всё равно уезжает к правому краю. */
+  margin: 0 0 0 auto;
+  flex: none;
 }
 
 .themes button {
@@ -716,13 +723,20 @@ footer .brandrow { margin: 0 0 14px; }
   background: transparent;
   color: var(--dim);
   font: inherit;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 700;
+  width: 32px;
+  height: 28px;
+  padding: 0;
   border-radius: 999px;
   cursor: pointer;
-  line-height: 1.2;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.themes button svg { display: block; }
 
 .themes button[aria-pressed="true"] {
   background: linear-gradient(180deg, var(--accent-soft), var(--accent));

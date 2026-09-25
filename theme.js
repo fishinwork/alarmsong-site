@@ -9,22 +9,23 @@
 
   function paint() {
     var now = root.getAttribute('data-theme');
-    var box = document.querySelector('.themes');
-    if (!box) return;
-    box.querySelectorAll('button').forEach(function (b) {
+    document.querySelectorAll('.themes button').forEach(function (b) {
       b.setAttribute('aria-pressed', String(b.dataset.theme === now));
     });
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    var box = document.querySelector('.themes');
-    if (!box) return;
-    box.addEventListener('click', function (e) {
-      var b = e.target.closest('button');
-      if (!b) return;
-      root.setAttribute('data-theme', b.dataset.theme);
-      try { localStorage.setItem('theme', b.dataset.theme); } catch (err) {}
-      paint();
+    /* Every switch on the page, not just the first one: the page may carry
+       one in the bar and another somewhere below, and a second silent switch
+       is worse than none. */
+    document.querySelectorAll('.themes').forEach(function (box) {
+      box.addEventListener('click', function (e) {
+        var b = e.target.closest('button');
+        if (!b) return;
+        root.setAttribute('data-theme', b.dataset.theme);
+        try { localStorage.setItem('theme', b.dataset.theme); } catch (err) {}
+        paint();
+      });
     });
     paint();
   });
