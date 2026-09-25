@@ -292,13 +292,26 @@ a { color: var(--accent); }
   margin: 22px 0 6px;
 }
 
+/* Rows fill completely or not at all. Letting the browser fit as many as
+   would go left an orphan in the last row — 2+1 on a three, 3+1 on a four —
+   and that was the first thing that caught the eye as wrong. */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: 1fr;
   gap: 16px;
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+@media (min-width: 620px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 880px) {
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .plans, .stores { grid-template-columns: repeat(3, 1fr); }
 }
 
 .tile {
@@ -406,7 +419,7 @@ figure { margin: 0; }
 
 .stores {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: 1fr;
   gap: 16px;
   margin: 0;
   padding: 0;
@@ -449,11 +462,89 @@ figure { margin: 0; }
   cursor: default;
 }
 
+/* One real song, playable. A site about songs with no song on it was the
+   loudest thing missing. The file only downloads when the button is pressed. */
+
+.player {
+  background: var(--card);
+  border: 1px solid var(--stroke);
+  border-radius: 22px;
+  padding: 20px;
+  margin: 26px auto 0;
+  max-width: 460px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+}
+
+.player button {
+  flex: none;
+  width: 54px;
+  height: 54px;
+  border-radius: 27px;
+  border: 0;
+  background: linear-gradient(180deg, var(--accent-soft), var(--accent));
+  color: var(--on-accent);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.player button svg { width: 22px; height: 22px; display: block; }
+
+.player .who { min-width: 0; flex: 1; }
+
+.player .name { font-weight: 600; margin: 0; }
+
+.player .about { color: var(--dim); font-size: 15px; margin: 2px 0 0; }
+
+.player .bars {
+  display: block;
+  width: 100%;
+  height: 22px;
+  color: var(--accent);
+  margin-top: 8px;
+  opacity: 0.55;
+}
+
+.player.playing .bars { opacity: 1; }
+
+/* What each title came from: the titles read as nonsense without it. */
+.pairs { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 10px; }
+
+.pairs li {
+  background: var(--card);
+  border: 1px solid var(--stroke);
+  border-radius: 16px;
+  padding: 12px 18px;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 12px;
+  justify-content: center;
+}
+
+.pairs .was { color: var(--dim); font-size: 15px; }
+
+.pairs .arrow { color: var(--accent); }
+
+.pairs .got { font-weight: 600; }
+
+@media (min-width: 620px) {
+  .pairs { grid-template-columns: 1fr 1fr; }
+  /* An odd one out spans the row instead of sitting alone in half of it. */
+  .pairs li:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+
 /* Prices */
 
 .plans {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: 1fr;
   gap: 16px;
   margin: 0;
   padding: 0;

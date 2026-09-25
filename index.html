@@ -189,7 +189,7 @@
 <section class="section">
   <h2>How the morning works</h2>
   <p class="lede">Three things happen, and you are asleep for the middle one.</p>
-  <ul class="grid">
+  <ul class="grid grid-3">
     <li class="tile">
       <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
         <circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2"/><path d="M5 3.5 2.5 6M19 3.5 21.5 6"/>
@@ -242,16 +242,28 @@
 
 <section class="section middle">
   <h2>It sings about your actual day</h2>
-  <p class="lede">The dentist you are dreading is in the chorus. These are real
-  titles from our own mornings.</p>
-  <ul class="titles">
-    <li>The Dentist Can Wait</li>
-    <li>Leg Day, Allegedly</li>
-    <li>Coffee Is Not A Personality</li>
-    <li>Nobody Emails On Saturday</li>
-    <li>Ten O’Clock Is Coming</li>
-    <li>Monday Owes Me Nothing</li>
+  <p class="lede">The dentist you are dreading ends up in the chorus. On the
+  left is what was on the day; on the right is the title the song came back
+  with.</p>
+  <ul class="pairs">
+    <li><span class="was">dentist at ten, no rescheduling</span><span class="arrow" aria-hidden="true">→</span><span class="got">The Dentist Can Wait</span></li>
+    <li><span class="was">gym, leg day</span><span class="arrow" aria-hidden="true">→</span><span class="got">Leg Day, Allegedly</span></li>
+    <li><span class="was">a meeting at ten</span><span class="arrow" aria-hidden="true">→</span><span class="got">Ten O’Clock Is Coming</span></li>
+    <li><span class="was">a Saturday with nothing on it</span><span class="arrow" aria-hidden="true">→</span><span class="got">Nobody Emails On Saturday</span></li>
+    <li><span class="was">a Monday you did not ask for</span><span class="arrow" aria-hidden="true">→</span><span class="got">Monday Owes Me Nothing</span></li>
   </ul>
+
+  <figure class="player" id="player">
+    <audio id="song" preload="none" controls src="/media/monday-owes-me-nothing.mp3"></audio>
+    <button type="button" id="playbtn" hidden aria-label="Play the song">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path id="playicon" d="M8 5.5v13l11-6.5L8 5.5Z"/></svg>
+    </button>
+    <figcaption class="who">
+      <p class="name">Monday Owes Me Nothing</p>
+      <p class="about">A real one, a minute long, from a Monday in our own testing.</p>
+      <svg class="bars" viewBox="0 0 132 22" fill="currentColor" aria-hidden="true"><rect x="0" y="8" width="4" height="6" rx="2"/><rect x="11" y="4" width="4" height="14" rx="2"/><rect x="22" y="6" width="4" height="10" rx="2"/><rect x="33" y="1" width="4" height="20" rx="2"/><rect x="44" y="7" width="4" height="8" rx="2"/><rect x="55" y="3" width="4" height="16" rx="2"/><rect x="66" y="9" width="4" height="4" rx="2"/><rect x="77" y="2" width="4" height="18" rx="2"/><rect x="88" y="6" width="4" height="10" rx="2"/><rect x="99" y="4" width="4" height="14" rx="2"/><rect x="110" y="8" width="4" height="6" rx="2"/><rect x="121" y="5" width="4" height="12" rx="2"/></svg>
+    </figcaption>
+  </figure>
 </section>
 
 <section class="section">
@@ -387,6 +399,37 @@
 </footer>
 
 </main>
+
+<script>
+/* One song, one button. Without JavaScript the page shows the browser's own
+   audio controls instead, so the song is still playable. */
+(function () {
+  var audio = document.getElementById('song');
+  var btn = document.getElementById('playbtn');
+  var box = document.getElementById('player');
+  var icon = document.getElementById('playicon');
+  if (!audio || !btn) return;
+  var PLAY = 'M8 5.5v13l11-6.5L8 5.5Z';
+  var PAUSE = 'M7 5h3.2v14H7V5Zm6.8 0H17v14h-3.2V5Z';
+  audio.removeAttribute('controls');
+  btn.hidden = false;
+  btn.addEventListener('click', function () {
+    if (audio.paused) { audio.play(); } else { audio.pause(); }
+  });
+  audio.addEventListener('play', function () {
+    icon.setAttribute('d', PAUSE);
+    btn.setAttribute('aria-label', 'Pause the song');
+    box.classList.add('playing');
+  });
+  ['pause', 'ended'].forEach(function (e) {
+    audio.addEventListener(e, function () {
+      icon.setAttribute('d', PLAY);
+      btn.setAttribute('aria-label', 'Play the song');
+      box.classList.remove('playing');
+    });
+  });
+})();
+</script>
 
 <!-- Counting page views: Cloudflare Web Analytics. No cookies, no local storage,
      nothing that says who you are — so the site needs no consent banner. -->
