@@ -115,6 +115,29 @@ if block:
     except json.JSONDecodeError as e:
         bad.append('разметка на главной не разбирается как JSON: %s' % e)
 
+# ── обещание скидки считается, а не выдумывается ────────────────────────
+# 26.09 на сайте стояло «Two thirds off the monthly price», а на деле 44 %.
+# Обещание скидки больше настоящей — то, за что цепляются и Apple, и законы
+# о подписках, поэтому число должно сходиться с ценами на той же странице.
+for page in ('index.html', 'pricing.html'):
+    if not os.path.exists(page):
+        continue
+    html = read(page)
+    prices = [float(x) for x in re.findall(r'<span class="price">\$([0-9.]+)</span>', html)]
+    claims = [int(x) for x in re.findall(r'(\d+)% off', html)]
+    if len(prices) >= 2 and claims:
+        month, year = prices[0], prices[1]
+        real = round((month * 12 - year) / (month * 12) * 100)
+        for said in claims:
+            if abs(said - real) > 1:
+                bad.append('%s: обещано %d%% скидки, а по ценам %d%%' % (page, said, real))
+    saved = re.findall(r'\$([0-9.]+) less than paying monthly', html)
+    if len(prices) >= 2 and saved:
+        real_saved = round(prices[0] * 12 - prices[1], 2)
+        for said in saved:
+            if abs(float(said) - real_saved) > 0.01:
+                bad.append('%s: обещана экономия $%s, а по ценам $%.2f' % (page, said, real_saved))
+
 # ── итог ────────────────────────────────────────────────────────────────
 if bad:
     print('Не сошлось:')
