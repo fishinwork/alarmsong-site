@@ -47,6 +47,7 @@
   --warn: #B93B22;
   --bezel: #2E1C12;
   --sky: url(/img/sky-day.webp);
+  --dunes: url(/img/dunes-day.webp);
 }
 
 /* Light is the site's own look, the way the app looks at first light. Dark is
@@ -66,6 +67,7 @@
     --warn: #FFC24D;
     --bezel: #0C0907;
     --sky: url(/img/sky-night.webp);
+    --dunes: url(/img/dunes-night.webp);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -83,6 +85,7 @@
     --warn: #FFC24D;
     --bezel: #0C0907;
     --sky: url(/img/sky-night.webp);
+    --dunes: url(/img/dunes-night.webp);
   }
 }
 
@@ -101,22 +104,77 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* The app's sky behind the top of every page, fading into the page colour.
-   A still image: nothing here is repainted frame by frame. */
+/* The app's sky behind the top of every page, in the same two layers the app
+   itself uses: the far one with the soft waves, the near one with the dunes.
+   Both are the app's baked images.
+
+   They drift, very slowly and in opposite directions, and the only thing that
+   changes is a transform — the card does that, nothing is repainted frame by
+   frame. That is the one kind of movement this project allows in a background. */
 .sky {
   position: absolute;
   inset: 0 0 auto;
-  height: min(760px, 78vw);
-  background: var(--sky) center top / 100% auto no-repeat;
+  height: clamp(560px, 92vw, 1040px);
   z-index: -2;
   pointer-events: none;
+  overflow: hidden;
 }
 
+.sky i {
+  position: absolute;
+  left: -4%;
+  right: -4%;
+  display: block;
+  background-repeat: no-repeat;
+  will-change: transform;
+}
+
+.sky .far {
+  top: 0;
+  height: 100%;
+  background-image: var(--sky);
+  background-position: center top;
+  background-size: 100% auto;
+  animation: drift-far 54s ease-in-out infinite alternate;
+}
+
+/* The dunes sit low and mostly out of frame: in the concept they are a corner,
+   not a wall, and the headline has to stay on light ground. */
+.sky .near {
+  bottom: -7%;
+  height: 38%;
+  background-image: var(--dunes);
+  background-position: center bottom;
+  background-size: 100% auto;
+  animation: drift-near 76s ease-in-out infinite alternate;
+  /* The crop has a straight top edge; without this it draws a line across the
+     page. Dissolved, the dunes come out of the haze the way they do in the app. */
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 26%);
+  mask-image: linear-gradient(to bottom, transparent, #000 26%);
+}
+
+@keyframes drift-far {
+  from { transform: translate3d(-1.4%, 0, 0); }
+  to   { transform: translate3d(1.4%, 0, 0); }
+}
+
+@keyframes drift-near {
+  from { transform: translate3d(1.8%, 0, 0); }
+  to   { transform: translate3d(-1.8%, 0, 0); }
+}
+
+/* Asked not to have movement — then there is none. */
+@media (prefers-reduced-motion: reduce) {
+  .sky i { animation: none; }
+}
+
+/* The last stretch dissolves into the page colour so the band has no edge. */
 .sky::after {
   content: "";
   position: absolute;
-  inset: 40% 0 0;
-  background: linear-gradient(to bottom, transparent, var(--bg) 88%);
+  inset: auto 0 0;
+  height: 22%;
+  background: linear-gradient(to bottom, transparent, var(--bg));
 }
 
 .wrap {
