@@ -177,12 +177,12 @@
     <div>
       <p class="eyebrow">The beta is open on TestFlight</p>
       <h1>An alarm<br>that sings about<br><span class="hl">your day</span></h1>
-      <p class="lede">Every morning a new song, written overnight about the day
-      ahead — what is on your calendar, what you left unfinished, in the music
-      you like.</p>
+      <p class="lede">An alarm clock that wakes you with a new song every
+      morning, written overnight about the day ahead — what is on your calendar,
+      what you left unfinished, in the music you like.</p>
       <div class="cta">
         <a class="btn btn-main" href="/app">Get the app</a>
-        <a class="btn btn-flat" href="#listen">Hear one</a>
+        <a class="btn btn-flat" href="#player" id="hearone">Hear one</a>
       </div>
     </div>
     <div class="phone hero-shot">
@@ -452,6 +452,17 @@
   var PLAY = 'M8 5.5v13l11-6.5L8 5.5Z';
   var PAUSE = 'M7 5h3.2v14H7V5Zm6.8 0H17v14h-3.2V5Z';
   audio.removeAttribute('controls');
+
+  /* "Hear one" says hear, so it plays — landing next to the button and
+     leaving the reader to find it was the old behaviour and a poor one. */
+  var jump = document.getElementById('hearone');
+  if (jump) {
+    jump.addEventListener('click', function () {
+      /* The link itself does the jumping — the browser is better at it and it
+         still works when this script does not. All we add is the playing. */
+      audio.play();
+    });
+  }
   btn.hidden = false;
   btn.addEventListener('click', function () {
     if (audio.paused) { audio.play(); } else { audio.pause(); }

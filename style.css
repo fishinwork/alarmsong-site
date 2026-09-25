@@ -123,8 +123,8 @@ body {
 
 .sky i {
   position: absolute;
-  left: -4%;
-  right: -4%;
+  left: -8%;
+  right: -8%;
   display: block;
   background-repeat: no-repeat;
   will-change: transform;
@@ -136,7 +136,7 @@ body {
   background-image: var(--sky);
   background-position: center top;
   background-size: 100% auto;
-  animation: drift-far 54s ease-in-out infinite alternate;
+  animation: drift-far 38s ease-in-out infinite alternate;
 }
 
 /* The dunes sit low and mostly out of frame: in the concept they are a corner,
@@ -147,7 +147,7 @@ body {
   background-image: var(--dunes);
   background-position: center bottom;
   background-size: 100% auto;
-  animation: drift-near 76s ease-in-out infinite alternate;
+  animation: drift-near 52s ease-in-out infinite alternate;
   /* The crop has a straight top edge; without this it draws a line across the
      page. Dissolved, the dunes come out of the haze the way they do in the app. */
   -webkit-mask-image: linear-gradient(to bottom, transparent, #000 26%);
@@ -155,13 +155,13 @@ body {
 }
 
 @keyframes drift-far {
-  from { transform: translate3d(-1.4%, 0, 0); }
-  to   { transform: translate3d(1.4%, 0, 0); }
+  from { transform: translate3d(-3.4%, 0, 0); }
+  to   { transform: translate3d(3.4%, 0, 0); }
 }
 
 @keyframes drift-near {
-  from { transform: translate3d(1.8%, 0, 0); }
-  to   { transform: translate3d(-1.8%, 0, 0); }
+  from { transform: translate3d(4.5%, 0, 0); }
+  to   { transform: translate3d(-4.5%, 0, 0); }
 }
 
 /* Asked not to have movement — then there is none. */
@@ -458,6 +458,7 @@ figure { margin: 0; }
 /* The song */
 
 .player {
+  scroll-margin-top: 90px;
   padding: 20px;
   margin: 30px auto 0;
   max-width: 470px;
