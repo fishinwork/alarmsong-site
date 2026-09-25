@@ -70,7 +70,7 @@
     --dunes: url(/img/dunes-night.webp);
 }
 
-/* Без JavaScript атрибут не проставится вовсе — тогда тему выбирает система. */
+/* Without JavaScript nobody can switch by hand, so the system decides. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]):not([data-theme="dark"]) {
     --bg: #1A100A;
@@ -225,11 +225,9 @@ body {
   font-size: 15px;
 }
 
-/* Цвет ссылок здесь не «приглушённый», а обычный текстовый: меню лежит
-   поверх запечённого неба, и на светлом пятне бархана приглушённый цвет
-   пропадал совсем — «Pricing» и «Support» было не прочитать (Кирилл, 25.09,
-   снимок с телефона). Тень держит буквы на любом пятне, какое под ними
-   окажется. */
+/* Menu links take the full text colour here rather than the muted one: over
+     the light patch of the baked sky, muted disappears altogether — Pricing
+     and Support could not be read at all. */
 .bar nav a {
   color: var(--text);
   text-decoration: none;
@@ -723,8 +721,8 @@ footer .brandrow { margin: 0 0 14px; }
   border-radius: 999px;
   padding: 3px;
   gap: 2px;
-  /* Справа и на широком экране, и на телефоне: когда меню переносится на
-     вторую строку, переключатель всё равно уезжает к правому краю. */
+  /* A shadow in the page colour rather than an outline: the letters stay
+      readable over any patch, and nothing is repainted to do it. */
   margin: 0 0 0 auto;
   flex: none;
 }
