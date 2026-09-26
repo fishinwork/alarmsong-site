@@ -752,3 +752,75 @@ footer .brandrow { margin: 0 0 14px; }
   background: linear-gradient(180deg, var(--accent-soft), var(--accent));
   color: var(--on-accent);
 }
+
+/* ── Variant B: the song is the first thing on the page ──────────────── */
+
+/* The phone is a button now: tapping it plays the morning it is showing. */
+button.phone {
+  position: relative;
+  border: 1px solid var(--stroke);
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+button.phone .tap {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 76px;
+  height: 76px;
+  border-radius: 38px;
+  background: linear-gradient(180deg, var(--accent-soft), var(--accent));
+  color: var(--on-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+
+button.phone .tap svg { width: 30px; height: 30px; margin-left: 4px; }
+
+button.phone.playing .tap { display: none; }
+
+.hero .player { margin: 26px 0 0; max-width: none; }
+
+.onphone { color: var(--dim); font-size: 15px; margin: 14px 0 0; max-width: 34em; }
+
+/* The QR is for a desktop, where a link to a phone app is a dead end. */
+.qr { display: none; }
+
+@media (min-width: 900px) {
+  .qr {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 22px 0 0;
+  }
+
+  .qr img {
+    width: 96px;
+    height: 96px;
+    border-radius: 14px;
+    border: 1px solid var(--stroke);
+    display: block;
+  }
+
+  .qr figcaption { color: var(--dim); font-size: 15px; max-width: 14em; }
+}
+
+/* One row in the bar on a phone: the links live in the footer, the door and
+   the theme stay up here, because those are what the top bar is for. */
+@media (max-width: 899px) {
+  .bar nav a:not(.btn) { display: none; }
+  .bar-in { padding-bottom: 14px; }
+}
+
+/* On a narrow phone the word does not fit beside the door and the theme, and
+   the mark alone is enough to say whose page this is. */
+@media (max-width: 470px) {
+  .bar .brand { display: none; }
+  .bar .btn { padding: 11px 16px; }
+  .bar-in { gap: 10px; }
+}

@@ -181,14 +181,36 @@
       <p class="lede">An alarm clock that wakes you with a new song every
       morning, written overnight about the day ahead — what is on your calendar,
       what you left unfinished, in the music you like.</p>
+
+      <figure class="player" id="player">
+        <audio id="song" preload="none" controls src="/media/three-things-on-a-tuesday.mp3"></audio>
+        <button type="button" id="playbtn" hidden aria-label="Play the song">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path id="playicon" d="M8 5.5v13l11-6.5L8 5.5Z"/></svg>
+        </button>
+        <figcaption class="who">
+          <p class="name">Three Things on a Tuesday</p>
+          <p class="about">A real one, a minute and a half, written for that Tuesday: the dentist at ten, the designer calling back at half past one, the gym at six thirty.</p>
+          <svg class="bars" viewBox="0 0 132 22" fill="currentColor" aria-hidden="true"><rect x="0" y="8" width="4" height="6" rx="2"/><rect x="11" y="4" width="4" height="14" rx="2"/><rect x="22" y="6" width="4" height="10" rx="2"/><rect x="33" y="1" width="4" height="20" rx="2"/><rect x="44" y="7" width="4" height="8" rx="2"/><rect x="55" y="3" width="4" height="16" rx="2"/><rect x="66" y="9" width="4" height="4" rx="2"/><rect x="77" y="2" width="4" height="18" rx="2"/><rect x="88" y="6" width="4" height="10" rx="2"/><rect x="99" y="4" width="4" height="14" rx="2"/><rect x="110" y="8" width="4" height="6" rx="2"/><rect x="121" y="5" width="4" height="12" rx="2"/></svg>
+        </figcaption>
+  </figure>
+
       <div class="cta">
-        <a class="btn btn-main" href="/app">Get the app</a>
-        <a class="btn btn-flat" href="#player" id="hearone">Hear one</a>
+        <a class="btn btn-main" href="https://testflight.apple.com/join/chHG2hJU" rel="noopener">Join the free beta</a>
+        <a class="btn btn-flat" href="/how-it-works">See how it works</a>
       </div>
+      <p class="onphone">Open that on an iPhone — the beta installs through
+      Apple’s free TestFlight app. A hundred places.</p>
+      <figure class="qr">
+        <img src="/img/beta-qr.png" width="264" height="264" alt="QR code that opens the AlarmSong TestFlight beta">
+        <figcaption>On a computer? Point your phone here.</figcaption>
+      </figure>
     </div>
-    <div class="phone hero-shot">
+    <button type="button" class="phone hero-shot" id="tapphone" aria-label="Play the song">
       <img src="/img/alarm.webp" width="600" height="1304" decoding="async" alt="The AlarmSong home screen counting down to the next alarm, with a 07:00 alarm card and the title of the song waiting for that morning">
-    </div>
+      <span class="tap" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5L8 5.5Z"/></svg>
+      </span>
+    </button>
   </div>
 
   <p class="line">Never the same song twice.</p>
@@ -237,25 +259,6 @@
   </ul>
 </section>
 
-<section class="section">
-  <h2>This is what it looks like</h2>
-  <p class="lede">Real screens from the app, not drawings of it.</p>
-  <ul class="phones">
-    <li><figure>
-      <div class="phone"><img src="/img/alarm.webp" width="600" height="1304" loading="lazy" decoding="async" alt="The AlarmSong home screen counting down three days and fifteen hours to the next alarm, with a 07:00 alarm card and the song title Ten O'Clock Is Coming"></div>
-      <figcaption>The next morning, and the song waiting for it.</figcaption>
-    </figure></li>
-    <li><figure>
-      <div class="phone"><img src="/img/morning.webp" width="600" height="1304" loading="lazy" decoding="async" alt="A card headed What's on Monday listing a dentist appointment at ten, a call with the designer at half past one and the gym at six"></div>
-      <figcaption>What the song is about, before it is written.</figcaption>
-    </figure></li>
-    <li><figure>
-      <div class="phone"><img src="/img/songs.webp" width="600" height="1304" loading="lazy" decoding="async" alt="A list of songs from previous mornings with their titles, lengths and hearts for the ones kept forever"></div>
-      <figcaption>Every morning you slept through, kept for a week.</figcaption>
-    </figure></li>
-  </ul>
-</section>
-
 <section class="section middle" id="listen">
   <h2>It sings about your actual day</h2>
   <p class="lede">A personalized song in the literal sense: the dentist you are
@@ -269,17 +272,6 @@
     <li><span class="was">a Monday you did not ask for</span><span class="arrow" aria-hidden="true">→</span><span class="got">Monday Owes Me Nothing</span></li>
   </ul>
 
-  <figure class="player" id="player">
-    <audio id="song" preload="none" controls src="/media/three-things-on-a-tuesday.mp3"></audio>
-    <button type="button" id="playbtn" hidden aria-label="Play the song">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path id="playicon" d="M8 5.5v13l11-6.5L8 5.5Z"/></svg>
-    </button>
-    <figcaption class="who">
-      <p class="name">Three Things on a Tuesday</p>
-      <p class="about">A real one, a minute and a half, written for that Tuesday: the dentist at ten, the designer calling back at half past one, the gym at six thirty.</p>
-      <svg class="bars" viewBox="0 0 132 22" fill="currentColor" aria-hidden="true"><rect x="0" y="8" width="4" height="6" rx="2"/><rect x="11" y="4" width="4" height="14" rx="2"/><rect x="22" y="6" width="4" height="10" rx="2"/><rect x="33" y="1" width="4" height="20" rx="2"/><rect x="44" y="7" width="4" height="8" rx="2"/><rect x="55" y="3" width="4" height="16" rx="2"/><rect x="66" y="9" width="4" height="4" rx="2"/><rect x="77" y="2" width="4" height="18" rx="2"/><rect x="88" y="6" width="4" height="10" rx="2"/><rect x="99" y="4" width="4" height="14" rx="2"/><rect x="110" y="8" width="4" height="6" rx="2"/><rect x="121" y="5" width="4" height="12" rx="2"/></svg>
-    </figcaption>
-  </figure>
 </section>
 
 <section class="section">
@@ -321,34 +313,6 @@
     </li>
   </ul>
   <p class="middle"><a class="btn btn-flat" href="/pricing">The honest small print</a></p>
-</section>
-
-<section class="section">
-  <h2>Where to get it</h2>
-  <p class="lede">Three doors, one of them open. The other two wait until they
-  work — a button that opens an error is worse than a button that waits.</p>
-  <ul class="stores">
-    <li class="store">
-      <p class="state">App Store · not yet</p>
-      <h3>iPhone</h3>
-      <p>The listing exists. The app goes on it when it is ready, not before.</p>
-      <span class="btn btn-off" aria-disabled="true">Coming to the App Store</span>
-    </li>
-    <li class="store">
-      <p class="state ready">TestFlight · open now</p>
-      <h3>The beta</h3>
-      <p>Open the link on your iPhone, after installing Apple’s free TestFlight
-      app. A hundred places.</p>
-      <a class="btn btn-main" href="https://testflight.apple.com/join/chHG2hJU" rel="noopener">Join the beta</a>
-    </li>
-    <li class="store">
-      <p class="state">Google Play · not yet</p>
-      <h3>Android</h3>
-      <p>Being built, behind the iPhone.</p>
-      <span class="btn btn-off" aria-disabled="true">Coming to Google Play</span>
-    </li>
-  </ul>
-  <p class="middle" style="margin-top:22px"><a class="btn btn-flat" href="/app">More about the app</a></p>
 </section>
 
 <section class="section">
@@ -456,6 +420,18 @@
 
   /* "Hear one" says hear, so it plays — landing next to the button and
      leaving the reader to find it was the old behaviour and a poor one. */
+  /* The phone in the hero is a button: pressing it plays the song it shows. */
+  var phone = document.getElementById('tapphone');
+  if (phone) {
+    phone.addEventListener('click', function () {
+      if (audio.paused) { audio.play(); } else { audio.pause(); }
+    });
+    audio.addEventListener('play', function () { phone.classList.add('playing'); });
+    ['pause', 'ended'].forEach(function (e) {
+      audio.addEventListener(e, function () { phone.classList.remove('playing'); });
+    });
+  }
+
   var jump = document.getElementById('hearone');
   if (jump) {
     jump.addEventListener('click', function () {
