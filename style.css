@@ -107,7 +107,10 @@ body {
 
 /* The app's sky behind the top of every page, in the same two layers the app
    itself uses: the far one with the soft waves, the near one with the dunes.
-   Both are the app's baked images.
+   Both are the app's baked images — with one difference: the night sky has
+   lost the bright patch where the app's sun sits. Here there is text in that
+   place, and in the dark theme the patch washed it out. `brand/night_sky.py`
+   makes the site's image from the app's.
 
    They drift, very slowly and in opposite directions, and the only thing that
    changes is a transform — the card does that, nothing is repainted frame by
